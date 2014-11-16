@@ -1,7 +1,6 @@
 from random import choice
 from errbot import botcmd, BotPlugin
 import twitter
-from cache import cached_property
 
 
 consumer_key='7hQkMRDXkRcHxuVvfwYFcVh2v'
@@ -16,7 +15,6 @@ class TwitterApi(object):
 		                       access_token_key=access_token_key, access_token_secret=access_token_secret)
 		super(TwitterApi, self).__init__()
 
-	@cached_property(ttl=60 * 60 * 1)
 	def get_statuses_for(self, user_name):
 		return self.api.GetUserTimeline(screen_name=user_name, count=200)
 
